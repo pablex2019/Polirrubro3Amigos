@@ -1,0 +1,110 @@
+@media all and (min-width:1024px){
+    #contenedor{
+        width: 960px;
+        height: 800px;
+        margin:auto;
+        background-color: transparent !important;
+    }
+    #cabecera{
+        align-items: center;
+        display: flex;
+        justify-content: center;
+    }
+    #contenedor>#cabecera>label{
+        font-size: xx-large; 
+        padding: 1em;
+    }
+    .form-group{
+        margin: auto;
+        max-width: 32%;
+    }
+    #usuario,#clave{
+        margin: auto;
+        width: 100%;
+    }
+    .form-group>#acceder{
+        margin-top: 5%;
+        width: 100%;
+    }
+}
+@media all and (min-width:900px) and (max-width:1023px){
+    #contenedor{
+		width: auto;
+		height: auto;
+	}
+    #cabecera{
+        align-items: center;
+        display: flex;
+        justify-content: center;
+    }
+    #contenedor>#cabecera>label{
+        font-size: xx-large; 
+        padding: 1em;
+    }
+    #usuario,#clave{
+        margin: auto;
+        width: 100%;
+    }
+    .form-group{
+        margin: auto;
+        max-width: 32%;
+    }
+    .form-group>#acceder{
+        margin-top: 5%;
+        width: 100%;
+    }
+}
+@media all and (min-width:600px) and (max-width:899px){
+    #contenedor{
+		width: auto;
+		height: auto;
+	}
+    #cabecera{
+        align-items: center;
+        display: flex;
+        justify-content: center;
+    }
+    #contenedor>#cabecera>label{
+        font-size: xx-large; 
+        padding: 1em;
+    }
+    #usuario,#clave{
+        margin: auto;
+        width: 100%;
+    }
+    .form-group{
+        margin: auto;
+        max-width: 36%;
+    }
+    .form-group>#acceder{
+        margin-top: 5%;
+        width: 100%;
+    }
+}
+@media all and (max-width: 599px){
+    #contenedor{
+		width: auto;
+		height: auto;
+	}
+    #cabecera{
+        align-items: center;
+        display: flex;
+        justify-content: center;
+    }
+    #contenedor>#cabecera>label{
+        font-size: xx-large; 
+        padding: 0.5em;
+    }
+    #usuario,#clave{
+        margin: auto;
+        width: 100%;
+    }
+    .form-group{
+        margin: auto;
+        max-width: 60%;
+    }
+    .form-group>#acceder{
+        margin-top: 5%;
+        width: 100%;
+    }
+}

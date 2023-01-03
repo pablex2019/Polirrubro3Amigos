@@ -1,0 +1,81 @@
+@media all and (min-width:1024px){
+    #principal{
+        max-width: 97%;
+        max-height: 97%;
+    }
+    #principal>#titulo{
+        margin-left: 1%;
+    }
+    #principal>#agregar{
+        margin-left: 1%;
+    }
+    #mensaje{
+        margin-left: 1%;
+    }
+    #principal>#tabla{
+        margin-left: 1%;
+    }
+    #campobusqueda,#buscar{
+        margin-left: 0%;
+    }
+}
+@media all and (min-width:768px) and (max-width:1023px){
+    #principal{
+        width: 97%;
+    }
+    #principal>#titulo{
+        margin-left: 1%;
+    }
+    #principal>#agregar{
+        margin-left: 1%;
+    }
+    #principal>#tabla{
+        margin-left: 1%;
+    }
+    #mensaje{
+        margin-left: 1%;
+    }
+    #campobusqueda,#buscar{
+        margin-left: 0%;
+    }
+}
+@media all and (min-width:600px) and (max-width:767px){
+    #principal{
+        width: 97%;
+    }
+    #principal>#titulo{
+        margin-left: 1%;
+    }
+    #principal>#agregar{
+        margin-left: 1%;
+    }
+    #principal>#tabla{
+        margin-left: 1%;
+    }
+    #mensaje{
+        margin-left: 1%;
+    }
+    #campobusqueda,#buscar{
+        margin-left: 1%;
+    }
+}
+@media all and (max-width: 599px){
+    #principal{
+        width: 97%;
+    }
+    #principal>#titulo{
+        margin-left: 1%;
+    }
+    #principal>#agregar{
+        margin-left: 1%;
+    }
+    #principal>#tabla{
+        margin-left: 1%;
+    }
+    #mensaje{
+        margin-left: 1%;
+    }
+    #campobusqueda,#buscar{
+        margin-left: 1%;
+    }
+}
