@@ -141,7 +141,6 @@
             </div>
         </div>
         <!-- Edit -->
-        <!-- Create -->
         <div class="modal fade" id="myModalEdit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
                         <div class="modal-dialog">
                             <div class="modal-content">
@@ -172,7 +171,8 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="rubroEdit">Rubro</label>
-                                                <select name="rubroEdit" class="form-control" id="rubroEdit">
+                                                <select name="rubroEdit" class="form-control" id 
+                                                ="rubroEdit">
                                                     <option value="0">Seleccione</option>
                                                         <?php 
                                                         $query2 = $link -> query ("SELECT * FROM rubro");
@@ -205,7 +205,7 @@
                                             <input type="text" id="descripciónEdit" class="form-control" name="descripciónEdit" readonly>
                                         </div>
                                     <div class="form-group">
-                                        <input type="hidden" name="idEdit" id="idEdit">
+                                        <input type="hidden" name="idEdit2" id="idEdit2">
                                         <label for="cantidad">Cantidad</label>
                                         <input type="text" id="cantidadEdit2" class="form-control" name="cantidadEdit2" required>
                                     </div>
@@ -354,6 +354,7 @@
                         body: formData
                     }).then(response => response.json()).then(data => {
                         idEdit.value = data.id
+                        idEdit2.value = data.id
                         cantidadEdit2.value = data.cantidad
                         document.querySelector('#descripciónEdit').value = data.descripción
                         document.querySelector('#cantidadEdit').value = data.cantidad

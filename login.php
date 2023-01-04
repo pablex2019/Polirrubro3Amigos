@@ -26,6 +26,8 @@
                 </div>
                 <div class="form-group">
                     <input type="submit" class="btn btn-primary" value="Acceder" id="acceder">
+                    <br><br><p>¿Eres un nuevo integrante? <a href="register.php">Presiona Aquí</a></p>
+                    <p>¿Olvidaste usuario y/o contraseña? <a href="forget-user-password.php">Presiona Aquí</a></p>
                 </div>
             </form>
         </main>

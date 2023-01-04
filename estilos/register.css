@@ -12,26 +12,21 @@
     }
     #contenedor>#cabecera>label{
         font-size: xx-large; 
-        padding: 1em;
+        padding: 0.2em;
     }
     .form-group{
         margin: auto;
-        max-width: 34%;
+        max-width: 31%;
     }
-    #usuario,#clave{
-        margin: auto;
-        width: 100%;
-    }
-    .form-group>#acceder{
-        margin-top: 5%;
-        width: 100%;
+    .form-group>.help-block{
+        color:red;
     }
 }
 @media all and (min-width:900px) and (max-width:1023px){
     #contenedor{
-		width: auto;
-		height: auto;
-	}
+        width: auto;
+        height: auto;
+    }
     #cabecera{
         align-items: center;
         display: flex;
@@ -41,24 +36,16 @@
         font-size: xx-large; 
         padding: 1em;
     }
-    #usuario,#clave{
-        margin: auto;
-        width: 100%;
-    }
     .form-group{
         margin: auto;
-        max-width: 34%;
-    }
-    .form-group>#acceder{
-        margin-top: 5%;
-        width: 100%;
+        max-width: 37%;
     }
 }
 @media all and (min-width:600px) and (max-width:899px){
     #contenedor{
-		width: auto;
-		height: auto;
-	}
+        width: auto;
+        height: auto;
+    }
     #cabecera{
         align-items: center;
         display: flex;
@@ -68,24 +55,16 @@
         font-size: xx-large; 
         padding: 1em;
     }
-    #usuario,#clave{
-        margin: auto;
-        width: 100%;
-    }
     .form-group{
         margin: auto;
-        max-width: 47%;
-    }
-    .form-group>#acceder{
-        margin-top: 5%;
-        width: 100%;
+        max-width: 32%;
     }
 }
 @media all and (max-width: 599px){
     #contenedor{
-		width: auto;
-		height: auto;
-	}
+        width: auto;
+        height: auto;
+    }
     #cabecera{
         align-items: center;
         display: flex;
@@ -93,18 +72,10 @@
     }
     #contenedor>#cabecera>label{
         font-size: xx-large; 
-        padding: 0.5em;
-    }
-    #usuario,#clave{
-        margin: auto;
-        width: 100%;
+        padding: 1em;
     }
     .form-group{
         margin: auto;
-        max-width: 65%;
-    }
-    .form-group>#acceder{
-        margin-top: 5%;
-        width: 100%;
+        max-width: 50%;
     }
 }
