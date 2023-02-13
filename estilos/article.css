@@ -1,4 +1,7 @@
 @media all and (min-width:1024px){
+    body{
+        overflow-x: hidden;
+    }
     #principal{
         max-width: 97%;
         max-height: 97%;
@@ -21,11 +24,18 @@
     #descargarPDF{
         margin-left: 1%;
     }
+    table{
+        display: block;
+        overflow-x: auto;
+    }
     #tabla{
         background:#FFF;
     }
 }
 @media all and (min-width:768px) and (max-width:1023px){
+    body{
+        overflow-x: hidden;
+    }
     #principal{
         width: 97%;
     }
@@ -47,8 +57,18 @@
     #descargarPDF{
         margin-left: 1%;
     }
+    table{
+        display: block;
+        overflow-x: auto;
+    }
+    #tabla{
+        background:#FFF;
+    }
 }
 @media all and (min-width:600px) and (max-width:767px){
+    body{
+        overflow-x: hidden;
+    }
     #principal{
         width: 97%;
     }
@@ -69,9 +89,19 @@
     }
     #descargarPDF{
         margin-left: 1%;
+    }
+    table{
+        display: block;
+        overflow-x: auto;
+    }
+    #tabla{
+        background:#FFF;
     }
 }
 @media all and (max-width: 599px){
+    body{
+        overflow-x: hidden;
+    }
     #principal{
         width: 97%;
     }
@@ -92,5 +122,12 @@
     }
     #descargarPDF{
         margin-left: 1%;
+    }
+    table{
+        display: block;
+        overflow-x: auto;
+    }
+    #tabla{
+        background:#FFF;
     }
 }

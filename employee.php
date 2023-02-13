@@ -3,8 +3,12 @@
     require_once "config.php";
     error_reporting(0);
     $busqueda = $_POST["s"];
+    session_start();
     //$sql= "select * from empleado where estado = 0 order by dni asc";
-
+    if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+        header("location: login.php");
+        exit;
+    }
     if($busqueda!="")
     {
         $sql= "SELECT empleado.id,dni,nombres,apellidos,correo_electrónico,perfil.descripción as descripción FROM empleado

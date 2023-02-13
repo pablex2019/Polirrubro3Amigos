@@ -5,8 +5,8 @@
     if(!empty($_POST)){
         session_start();
             if($_SESSION["perfil"]== 4){
-                if(isset($_POST["cantidadEdit2"]) && $_POST["cantidadEdit2"]!=""){
-                    $sql = "update articulo set cantidad=\"$_POST[cantidadEdit2]\"
+                if(isset($_POST["cantidadEdit"]) && $_POST["cantidadEdit"]!=""){
+                    $sql = "update articulo set cantidad=\"$_POST[cantidadEdit]\"
                             where id=".$_POST["idEdit"];
                     $query1 = $link->query($sql);
                     if($query1!=null){

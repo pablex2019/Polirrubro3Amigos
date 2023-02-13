@@ -3,8 +3,13 @@
     require_once "config.php";
     error_reporting(0);
     $busqueda = $_POST["s"];
+    session_start();
     //$sql= "select * from empleado where estado = 0 order by dni asc";
-
+    // Check if the user is logged in, if not then redirect him to login page
+    if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+        header("location: login.php");
+        exit;
+    }
     if($busqueda!="")
     {
         $sql= "SELECT  @i := @i + 1 as contador,a.id,a.descripción,a.cantidad,a.precio_costo,a.precio_venta,'' as utilidad,r.descripción as rubro_descripción,c.descripción as categoría_descripción 
@@ -43,6 +48,7 @@
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+    <!--Agregado-->
     
 </head>
 <body>
@@ -171,8 +177,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="rubroEdit">Rubro</label>
-                                                <select name="rubroEdit" class="form-control" id 
-                                                ="rubroEdit">
+                                                <select name="rubroEdit" class="form-control" id="rubroEdit">
                                                     <option value="0">Seleccione</option>
                                                         <?php 
                                                         $query2 = $link -> query ("SELECT * FROM rubro");
@@ -200,14 +205,15 @@
                                         </div>
                                 <?php } ?>
                                 <?php if($_SESSION["perfil"]== 4) { ?>
-                                    <div class="form-group">
+                                   <div class="form-group">
+                                            <input type="hidden" name="idEdit" id="idEdit">
                                             <label for="descripción">Descripción</label>
                                             <input type="text" id="descripciónEdit" class="form-control" name="descripciónEdit" readonly>
                                         </div>
                                     <div class="form-group">
-                                        <input type="hidden" name="idEdit2" id="idEdit2">
+                                        
                                         <label for="cantidad">Cantidad</label>
-                                        <input type="text" id="cantidadEdit2" class="form-control" name="cantidadEdit2" required>
+                                        <input type="text" id="cantidadEdit" class="form-control" name="cantidadEdit" required>
                                     </div>
                                 <?php } ?>
                                 <button type="submit" class="btn btn-primary">Guardar</button>
@@ -224,13 +230,16 @@
             <button type="submit" class="btn btn-default" id="buscar"><i class="glyphicon glyphicon-search"></i></button>
         </form>
         <?php if($query->num_rows>0):?>
-        <table data-role="table" data-mode="columntoggle" class="table table-hover ui-responsive" id="tabla" class="">
+        <table data-role="table" data-mode="columntoggle" class="table table-hover ui-responsive" id="tabla" class="" style="">
             <thead>
                 <tr>
                     <th>N°</th>
                     <th>Descripción</th>
                     <th style="text-align:center">Cantidad</th>
-                    <th style="text-align:center">Precio Costo</th>
+                    <?php
+                        if($_SESSION["perfil"]==1) { ?>
+                            <th style="text-align:center">Precio Costo</th>
+                    <?php } ?>
                     <th style="text-align:center">Precio Venta</th>
                     <th style="text-align:center">Utilidad Bruta (%) </th>
                     <th style="text-align:center">Rubro</th>
@@ -238,13 +247,16 @@
                     <th>Acciones</th>    
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="articlesdev">
                 <?php while ($r=$query->fetch_array()):?>
                         <tr>
                             <td><?php echo $r["contador"];?></td>
                             <td><?php echo $r["descripción"]; ?></td>
                             <td style="text-align:center"><?php echo $r["cantidad"]; ?></td>
-                            <td style="text-align:center"><?php echo $r["precio_costo"]; ?></td>
+                            <?php
+                                if($_SESSION["perfil"]==1) { ?>
+                                    <td style="text-align:center"><?php echo $r["precio_costo"]; ?></td>
+                            <?php } ?>
                             <td style="text-align:center"><?php echo $r["precio_venta"]; ?></td>
                             <td style="text-align:center"><?php echo number_format((($r["precio_venta"] - $r["precio_costo"]) / $r["precio_venta"])*100,2,".","");?></td>
                             <td style="text-align:center"><?php echo $r["rubro_descripción"]; ?></td>
@@ -275,7 +287,7 @@
     </main>
     </body>
     <script>
-        
+
             function Export() {
 
                 html2canvas(document.getElementById('tabla'), {
@@ -353,9 +365,7 @@
                         method: "POST",
                         body: formData
                     }).then(response => response.json()).then(data => {
-                        idEdit.value = data.id
-                        idEdit2.value = data.id
-                        cantidadEdit2.value = data.cantidad
+                        document.querySelector('#idEdit').value = data.id
                         document.querySelector('#descripciónEdit').value = data.descripción
                         document.querySelector('#cantidadEdit').value = data.cantidad
                         document.querySelector('#precio_costoEdit').value = data.precio_costo
@@ -363,6 +373,9 @@
                         document.querySelector('#rubroEdit').value = data.id_rubro
                         document.querySelector('#categoríaEdit').value = data.id_categoría
                         let idrubro = document.querySelector('#rubroEdit').value = data.id_rubro
+                        //document.querySelector('#idEdit2').value = data.id
+                        //document.querySelector('#descripciónEdit2').value = data.descripción
+                        //document.querySelector('#cantidadEdit2').value = data.cantidad
                         $.ajax({
                             url: 'article.php',
                             method: 'GET',
