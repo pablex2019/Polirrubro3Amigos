@@ -1,4 +1,5 @@
 <?php
+    require_once "config.php";
     session_start();
         //$categoria = array();
         /*$cont = 0;
@@ -34,7 +35,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>                        
                     </button>
-                    <a class="navbar-brand" href="main.php">Polirrubro 3 Amigos</a>
+                    <a class="navbar-brand" href="main.php">Inicio</a>
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">
@@ -58,58 +59,25 @@
             </div>
         </nav>
     </header>
+    <section style="margin-left:1%;">
+        <label for="cantidadDiferentesArticulos">Cantidad de Diferentes Articulos: </label>
+        <label style="color:red;"><?php $sql = "SELECT COUNT(*) as cantidad FROM articulo";
+                  $query = $link->query($sql);
+                  $row = $query->fetch_row();
+                  echo $row[0]; 
+            ?></label>
+        <br><label for="capital">Capital:</label>
+        <label style="color:red;"><?php $sql1 = "SELECT ROUND(SUM(articulo.cantidad*articulo.precio_costo), 2) FROM articulo;";
+                  $query1 = $link->query($sql1);
+                  $row1 = $query1->fetch_row();
+                  echo $row1[0]; 
+            ?></label>
+    </section>
     <section>
         <canvas id="myPieGraph" style="max-height: 200px;"></canvas>
     </section>
 
 </body>
 <script>
-    /*
-    const rubro = <?php echo json_encode($rubro,JSON_UNESCAPED_UNICODE); ?>;
-    const categoria = <?php echo json_encode($categoria,JSON_UNESCAPED_UNICODE); ?>;
-
-    const pieData = {
-        labels: rubro,
-        datasets: [{
-            data: [categoria],
-            backgroundColor: [
-            "#4EADEB",
-            ],
-            hoverOffset: 2,
-        }],
-    };
-
-var pieCtx = myPieGraph.getContext('2d');
-
-var myPieChart = new Chart(pieCtx, {
-  /* IMPORTANTE: cargamos el complemento 
-  plugins: [ChartDataLabels],
-  type: 'pie',
-  data: pieData,
-  options: {
-    plugins: {
-      datalabels: {
-        /* anchor puede ser "start", "center" o "end" 
-        anchor: "center",
-        /* Podemos modificar el texto a mostrar 
-        formatter: (dato) => dato + "%",
-        /* Color del texto 
-        color: "black",
-        /* Formato de la fuente 
-        font: {
-          family: '"Times New Roman", Times, serif',
-          size: "28",
-          weight: "bold",
-        },
-        /* Formato de la caja contenedora 
-        //padding: "4",
-        //borderWidth: 2,
-        //borderColor: "darkblue",
-        //borderRadius: 8,
-        //backgroundColor: "lightblue"
-      }
-    }
-  }
-});*/
 </script>
 </html>
